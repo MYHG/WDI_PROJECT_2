@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
+const { databaseURL } = require('../config/environment');
 
 //Connect to database URL
-const databaseURL = process.env.MONGOB_URI || 'mongodb://localhost/all-the-birds';
-mongoose.connect(databaseURL);
+mongoose.connect(databaseURL, { useMongoClient: true });
 
 //Require the model
 const User= require('../models/user');
