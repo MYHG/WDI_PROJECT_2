@@ -6,7 +6,7 @@ const { databaseURL } = require('../config/environment');
 mongoose.connect(databaseURL, { useMongoClient: true });
 
 //Require the model
-const User= require('../models/user');
+const User = require('../models/user');
 const Profile = require('../models/profile');
 
 //Drop data

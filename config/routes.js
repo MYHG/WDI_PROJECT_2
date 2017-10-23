@@ -14,17 +14,28 @@ router.route('/login')
   .get(sessions.new)
   .post(sessions.create);
 
+//Restful routes for profiles resource
+//All URLS should contain /profiles
+
+// INDEX
+router.get('/profiles', (req, res) => res.send('INDEX'));
 
 // NEW
+router.get('/profiles/new', (req, res)=> res.send('NEW'));
 
 // SHOW
+router.get('/profiles/:id', (req, res) => res.send('SHOW'));
 
 // CREATE
+router.post('/profiles', (req, res) => res.send('CREATE'));
 
 // EDIT
+router.get('/profiles/:id/edit', (req, res) => res.send('EDIT'));
 
 // UPDATE
+router.put('/profiles/:id', (req, res) => res.send('UPDATE'));
 
 // DELETE
+router.delete('/profiles/:id', (req, res) => res.send('DELETE'));
 
 module.exports = router;
