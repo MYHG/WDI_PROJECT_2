@@ -18,19 +18,19 @@ router.route('/login')
 //All URLS should contain /profiles
 
 // INDEX
-router.get('/profiles', (req, res) => res.send('INDEX'));
+router.get('/profiles', (req, res) => res.send('profiles/index'));
 
 // NEW
-router.get('/profiles/new', (req, res)=> res.send('NEW'));
+router.get('/profiles/new', (req, res)=> res.send('profiles/new'));
 
 // SHOW
-router.get('/profiles/:id', (req, res) => res.send('SHOW'));
+router.get('/profiles/:id', (req, res) => res.send('profiles/show'));
 
 // CREATE
 router.post('/profiles', (req, res) => res.send('CREATE'));
 
 // EDIT
-router.get('/profiles/:id/edit', (req, res) => res.send('EDIT'));
+router.get('/profiles/:id/edit', (req, res) => res.send('profiles/edit'));
 
 // UPDATE
 router.put('/profiles/:id', (req, res) => res.send('UPDATE'));
