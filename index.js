@@ -43,9 +43,9 @@ app.use(methodOverride(function (req) {
   }
 }));
 app.use(authentication);
-app.use(routes);
 app.use(errorHandler);
 
+app.use(routes);
 
 //Listen to port
 app.listen(port, () => console.log(`Express is listening to port ${port}`));

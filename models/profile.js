@@ -9,9 +9,8 @@ const yearbookSchema = new mongoose.Schema({
   quote: [ quoteSchema ]
 });
 
-// yearbookSchema.methods.belongsTo = function profiileBelongsTo(user) {
-//   if(typeof this.createdBy.id === 'string') return this.createdBy.id === user.id;
-//   return user.id === this.createdBy.toString();
-// };
+yearbookSchema.methods.belongsTo = function BelongsTo(user) {
+  return user.id === this.createdBy;
+};
 
 module.exports = mongoose.model('Profile', yearbookSchema);

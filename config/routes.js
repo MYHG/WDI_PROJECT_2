@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-//A home route
-router.get('/', (req, res) => res.render('home'));
 const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
+const profiles = require('../controllers/profiles');
+
+//A home route
+router.get('/', (req, res) => res.render('home'));
 
 router.route('/register')
   .get(registrations.new)
@@ -19,24 +21,22 @@ router.route('/login')
 // once routes are created and views ejs files have been added, create a controllers file
 
 // INDEX
-router.get('/profiles', (req, res) => res.send('profiles/index'));
+router.route('/profiles')
+  .get(profiles.index)
+  .post(profiles.create);
 
 // NEW
-router.get('/profiles/new', (req, res)=> res.send('profiles/new'));
+router.route('/profiles/new')
+  .get(profiles.new);
 
 // SHOW
-router.get('/profiles/:id', (req, res) => res.send('profiles/show'));
+router.route('/profiles/:id')
+  .get(profiles.show);
+// .put(profiles.update)
+// .delete(profiles.delete);
 
-// CREATE
-router.post('/profiles', (req, res) => res.send('CREATE'));
-
-// EDIT
-router.get('/profiles/:id/edit', (req, res) => res.send('profiles/edit'));
-
-// // UPDATE
-router.put('/profiles/:id', (req, res) => res.send('UPDATE'));
-
-// // DELETE
-router.delete('/profiles/:id', (req, res) => res.send('DELETE'));
+// // EDIT
+// router.route('/profiles/:id/edit')
+//   .get(profiles.edit);
 
 module.exports = router;

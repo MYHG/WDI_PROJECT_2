@@ -31,13 +31,17 @@ User
       .create([{
         name: 'Alex Chin aka Ninja',
         image: 'https://orig00.deviantart.net/4b77/f/2014/065/6/f/coding_ninja_by_kaizoro-d797me9.jpg',
-        quote: 'Ninja by day, ninja by night dreams of an alternate universe where goblins invade Argos'
+        quote: [{
+          content: 'Ninja by day, ninja by night dreams of an alternate universe where goblins invade Argos'
+        }]
       },{
         name: 'The Rane man',
         image: 'https://orig00.deviantart.net/4b77/f/2014/065/6/f/coding_ninja_by_kaizoro-d797me9.jpg',
-        quote: 'Likes to chuck sh**t until it sticks'
+        quote: [{
+          content: 'Insert quote'
+        }]
       }]);
   })
-  .then((profiles) => console.log(`${profiles.length} hotels created`))
+  .then((profiles) => console.log(`${profiles.length} profiles created`))
   .catch((err) => console.log(err))
   .finally(() => mongoose.connection.close());
