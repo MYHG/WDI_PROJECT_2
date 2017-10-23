@@ -16,6 +16,7 @@ router.route('/login')
 
 //Restful routes for profiles resource
 //All URLS should contain /profiles
+// once routes are created and views ejs files have been added, create a controllers file
 
 // INDEX
 router.get('/profiles', (req, res) => res.send('profiles/index'));
@@ -32,10 +33,10 @@ router.post('/profiles', (req, res) => res.send('CREATE'));
 // EDIT
 router.get('/profiles/:id/edit', (req, res) => res.send('profiles/edit'));
 
-// UPDATE
+// // UPDATE
 router.put('/profiles/:id', (req, res) => res.send('UPDATE'));
 
-// DELETE
+// // DELETE
 router.delete('/profiles/:id', (req, res) => res.send('DELETE'));
 
 module.exports = router;
