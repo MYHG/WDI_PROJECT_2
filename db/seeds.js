@@ -15,7 +15,7 @@ Profile.collection.drop();
 
 //Create dummy seed data
 
-//All requested user data in models User and views registration new.ejs must match seeds
+//All requested user data in views registration new.ejs must match seeds
 User
   .create([{
     firstName: 'Sandra',

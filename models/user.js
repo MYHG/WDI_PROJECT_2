@@ -6,8 +6,8 @@ const userSchema = new mongoose.Schema({
   lastName: {type: String, required: true },
   username: String,
   email: {type: String, required: true},
-  password: {type: String, required: true},
-  passwordConfirmation: {type: String, required: true}
+  password: {type: String, required: true}
+
 });
 
 userSchema.pre('save', function hashPassword(next) {
