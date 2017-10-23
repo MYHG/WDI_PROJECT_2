@@ -1,13 +1,22 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
+const quoteSchema = new mongoose.Schema({
+  content: {type: String, required: true }
+});
+
+const imageSchema = new mongoose.Schema({
+  url: {type: String, required: true }
+});
+
 const userSchema = new mongoose.Schema({
   firstName: {type: String, required: true },
   lastName: {type: String, required: true },
   username: String,
   email: {type: String, required: true},
-  password: {type: String, required: true}
-
+  password: {type: String, required: true},
+  images: [ imageSchema ],
+  quotes: [ quoteSchema ]
 });
 
 userSchema.pre('save', function hashPassword(next) {

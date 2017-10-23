@@ -1,0 +1,22 @@
+<h1><%= yearbook.name %></h1>
+<%= yearbook %>
+<ul>
+<% yearbook.users.forEach(user => { %>
+  <li>
+    <ul>
+      <h2>Images</h2>
+      <% user.images.forEach(image => { %>
+        <li><img src="<%= image.url %>"></li>
+      <% }) %>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <h2>Quotes</h2>
+      <% user.quotes.forEach(quote => { %>
+        <li><%= quote.content %></li>
+      <% }) %>
+    </ul>
+  </li>
+<% }) %>
+</ul>

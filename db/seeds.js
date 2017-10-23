@@ -7,11 +7,11 @@ mongoose.connect(databaseURL, { useMongoClient: true });
 
 //Require the model
 const User = require('../models/user');
-const Profile = require('../models/profile');
+const Yearbook = require('../models/yearbook');
 
 //Drop data
 User.collection.drop();
-Profile.collection.drop();
+Yearbook.collection.drop();
 
 //Create dummy seed data
 
@@ -23,25 +23,23 @@ User
     username: 'sandra',
     email: 'sandra@sandra.co.uk',
     password: 'password',
-    passwordConfirmation: 'password'
+    passwordConfirmation: 'password',
+    images: [{
+      url: 'https://orig00.deviantart.net/4b77/f/2014/065/6/f/coding_ninja_by_kaizoro-d797me9.jpg'
+    }],
+    quotes: [{
+      content: 'Ninja by day, ninja by night dreams of an alternate universe where goblins invade Argos'
+    }]
   }])
   .then((users) => {
     console.log(`${users.length} users created`);
-    return Profile
+    return Yearbook
       .create([{
-        name: 'Alex Chin aka Ninja',
-        image: 'https://orig00.deviantart.net/4b77/f/2014/065/6/f/coding_ninja_by_kaizoro-d797me9.jpg',
-        quote: [{
-          content: 'Ninja by day, ninja by night dreams of an alternate universe where goblins invade Argos'
-        }]
-      },{
-        name: 'The Rane man',
-        image: 'https://orig00.deviantart.net/4b77/f/2014/065/6/f/coding_ninja_by_kaizoro-d797me9.jpg',
-        quote: [{
-          content: 'Insert quote'
-        }]
+        name: 'WDI 30',
+        description: 'Ninjas',
+        users: [users[0]]
       }]);
   })
-  .then((profiles) => console.log(`${profiles.length} profiles created`))
+  .then((yearbooks) => console.log(`${yearbooks.length} yearbooks created`))
   .catch((err) => console.log(err))
   .finally(() => mongoose.connection.close());

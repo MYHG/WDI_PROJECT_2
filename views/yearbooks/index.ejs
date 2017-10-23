@@ -1,0 +1,8 @@
+<h1>Yearbooks</h1>
+<ul>
+  <% yearbooks.forEach((yearbook) => { %>
+    <li>
+      <a href="/yearbooks/<%= yearbook.id %>"><%= yearbook.name %></a>
+    </li>
+  <% }); %>
+</ul>

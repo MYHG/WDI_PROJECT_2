@@ -1,0 +1,22 @@
+<header>
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link active" href="/yearbooks">Yearbooks</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/yearbooks/new">Add yearbook</a>
+    </li>
+    <% if (locals.isAuthenticated) { %>
+      <li class="nav-item">
+        <a class="nav-link" href="/profile"><%= locals.user.username %></a>
+      </li>
+    <% } else { %>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="/register">Register</a>
+      </li>
+    <% } %>
+  </ul>
+</header>
