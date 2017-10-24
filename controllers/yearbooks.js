@@ -20,7 +20,7 @@ function newRoute(req, res) {
 function showRoute(req, res, next) {
   Yearbook
     .findById(req.params.id)
-    .populate('users')
+    .populate('users createdBy')
     .exec()
     .then((yearbook) => {
       if(!yearbook) return res.notFound();
@@ -31,9 +31,11 @@ function showRoute(req, res, next) {
 
 //CREATE
 function createRoute(req, res, next) {
+  req.body.createdBy = req.user;
+
   Yearbook
     .create(req.body)
-    .then(() => res.redirect('/yearbooks'))
+    .then((yearbook) => res.redirect(`/yearbooks/${yearbook.id}`))
     .catch((err) => {
       if (err.name === 'ValidationError') return res.badRequest('/yearbooks/new', err.toString());
       next(err);
@@ -46,7 +48,7 @@ function editRoute(req, res, next) {
     .exec()
     .then(yearbook => {
       if(!yearbook) return res.redirect();
-      if(!yearbook.belongsTo(req.user)) return res.unauthorized('You do not have access rights');
+      // if(!yearbook.belongsTo(req.user)) return res.unauthorized('You do not have access rights');
       return res.render('yearbooks/edit', { yearbook });
     })
     .catch(next);
@@ -59,7 +61,7 @@ function updateRoute(req, res, next) {
     .exec()
     .then((yearbook) => {
       if(!yearbook) return res.notFound();
-      if(!yearbook.belongsTo(req.user)) return res.unauthorized('You do not have access rights');
+      // if(!yearbook.belongsTo(req.user)) return res.unauthorized('You do not have access rights');
 
       for(const field in req.body){
         yearbook[field] = req.body[field];
@@ -81,11 +83,51 @@ function deleteRoute(req, res, next) {
     .exec()
     .then(yearbook => {
       if(!yearbook) return res.notFound();
-      if(!yearbook.belongsTo(req.user)) return res.unauthorized('You do not have access rights');
+      // if(!yearbook.belongsTo(req.user)) return res.unauthorized('You do not have access rights');
       return yearbook.remove();
     })
     .then(() => res.redirect('/yearbooks'))
     .catch(next);
+}
+
+function joinRoute(req, res, next) {
+  Yearbook
+    .findById(req.params.id)
+    .exec()
+    .then((yearbook) => {
+      if(!yearbook) return res.notFound();
+      // if(!yearbook.belongsTo(req.user)) return res.unauthorized('You do not have access rights');
+
+      yearbook.users.push(req.user.id);
+
+      return yearbook.save();
+    })
+    .then(() => res.redirect(`/yearbooks/${req.params.id}`))
+    .catch((err) => {
+      if (err.name === 'ValidationError') return res.badRequest(`/yearbooks/${req.params.id}/edit`, err.toString());
+      next(err);
+    });
+}
+
+function leaveRoute(req, res, next) {
+  Yearbook
+    .findById(req.params.id)
+    .exec()
+    .then((yearbook) => {
+      if(!yearbook) return res.notFound();
+      // if(!yearbook.belongsTo(req.user)) return res.unauthorized('You do not have access rights');
+
+
+      const index = yearbook.users.indexOf(req.user.id);
+      yearbook.users.splice(index, 1);
+
+      return yearbook.save();
+    })
+    .then(() => res.redirect(`/yearbooks/${req.params.id}`))
+    .catch((err) => {
+      if (err.name === 'ValidationError') return res.badRequest(`/yearbooks/${req.params.id}/edit`, err.toString());
+      next(err);
+    });
 }
 
 //Export all routes
@@ -96,5 +138,7 @@ module.exports = {
   create: createRoute,
   edit: editRoute,
   update: updateRoute,
-  delete: deleteRoute
+  delete: deleteRoute,
+  join: joinRoute,
+  leave: leaveRoute
 };

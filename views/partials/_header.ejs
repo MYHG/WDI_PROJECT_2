@@ -1,14 +1,17 @@
 <header>
   <ul class="nav justify-content-end">
     <li class="nav-item">
-      <a class="nav-link active" href="/yearbooks">Yearbooks</a>
+      <a class="nav-link active" href="/yearbooks">WDI 30 Yearbook</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/yearbooks/new">Add yearbook</a>
+      <a class="nav-link" href="/yearbooks/new">Add New Entry</a>
     </li>
     <% if (locals.isAuthenticated) { %>
       <li class="nav-item">
-        <a class="nav-link" href="/profile"><%= locals.user.username %></a>
+        <a class="nav-link" href="/profile">Welcome <%= locals.user.username %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
       </li>
     <% } else { %>
       <li class="nav-item">

@@ -1,22 +1,38 @@
 <h1><%= yearbook.name %></h1>
-<%= yearbook %>
+<p><%= yearbook.description %></p>
+<p>Created by: <%= yearbook.createdBy.username %></p>
+
+<% if(locals.isAuthenticated && (yearbook.createdBy.id === locals.user.id)) { %>
+  <a href="/yearbooks/<%= yearbook.id %>/edit">Edit Yearbook</a>
+  <form method="POST" action="/yearbooks/<%= yearbook.id %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <button>Delete Yearbook</button>
+  </form>
+<% } %>
+
+<%# only see the join or leave buttons if the user is logged in%>
+<%#loop over the array of yearbook users and find one that matches the criteria%>
+<%#the criteria is that the user ids have to match%>
+<% if(locals.isAuthenticated) { %>
+  <% if(!yearbook.users.find(_user => _user.id === user.id)) { %>
+    <form method="POST" action="/yearbooks/<%= yearbook.id %>/join">
+      <button>Join!</button>
+    </form>
+  <% } %>
+  <% if(yearbook.users.find(_user => _user.id === user.id)) { %>
+    <form method="POST" action="/yearbooks/<%= yearbook.id %>/leave">
+      <input type="hidden" name="_method" value="DELETE">
+      <button>Leave!</button>
+    </form>
+  <% } %>
+<% } %>
+
 <ul>
-<% yearbook.users.forEach(user => { %>
-  <li>
-    <ul>
-      <h2>Images</h2>
-      <% user.images.forEach(image => { %>
-        <li><img src="<%= image.url %>"></li>
-      <% }) %>
-    </ul>
-  </li>
-  <li>
-    <ul>
-      <h2>Quotes</h2>
-      <% user.quotes.forEach(quote => { %>
-        <li><%= quote.content %></li>
-      <% }) %>
-    </ul>
-  </li>
-<% }) %>
+  <% yearbook.users.forEach(user => { %>
+    <li>
+        <h2><%= user.username %></h2>
+        <img src="<%= user.image %>">
+        <p><%= user.quote %>
+    </li>
+  <% }) %>
 </ul>

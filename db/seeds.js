@@ -24,12 +24,8 @@ User
     email: 'sandra@sandra.co.uk',
     password: 'password',
     passwordConfirmation: 'password',
-    images: [{
-      url: 'https://orig00.deviantart.net/4b77/f/2014/065/6/f/coding_ninja_by_kaizoro-d797me9.jpg'
-    }],
-    quotes: [{
-      content: 'Ninja by day, ninja by night dreams of an alternate universe where goblins invade Argos'
-    }]
+    image: 'https://orig00.deviantart.net/4b77/f/2014/065/6/f/coding_ninja_by_kaizoro-d797me9.jpg',
+    quote: 'Ninja by day, ninja by night dreams of an alternate universe where goblins invade Argos'
   }])
   .then((users) => {
     console.log(`${users.length} users created`);
@@ -37,7 +33,9 @@ User
       .create([{
         name: 'WDI 30',
         description: 'Ninjas',
-        users: [users[0]]
+        createdBy: users[0],
+        users: [users[0]],
+        image: 'http://fillmurray.com/500/500'
       }]);
   })
   .then((yearbooks) => console.log(`${yearbooks.length} yearbooks created`))

@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const quoteSchema = new mongoose.Schema({
-  content: {type: String, required: true }
-});
-
-const imageSchema = new mongoose.Schema({
-  url: {type: String, required: true }
-});
+// const quoteSchema = new mongoose.Schema({
+//   content: {type: String, required: true }
+// });
+//
+// const imageSchema = new mongoose.Schema({
+//   url: {type: String, required: true }
+// });
 
 const userSchema = new mongoose.Schema({
   firstName: {type: String, required: true },
@@ -15,8 +15,8 @@ const userSchema = new mongoose.Schema({
   username: String,
   email: {type: String, required: true},
   password: {type: String, required: true},
-  images: [ imageSchema ],
-  quotes: [ quoteSchema ]
+  image: {type: String, required: true },
+  quote: {type: String, required: true }
 });
 
 userSchema.pre('save', function hashPassword(next) {
