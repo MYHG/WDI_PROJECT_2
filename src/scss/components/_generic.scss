@@ -1,0 +1,83 @@
+body {
+  background-image: url('http://czdigitalmedia.com/wp-content/uploads/2015/03/white-brick-wall-tumblr.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #FFFFFF;
+  background: #fafafa;
+}
+
+h1 {
+ font-family: 'Lato', sans-serif;
+ font-size: 60px;
+}
+
+p {
+  font-family: 'Droid Sans', sans-serif;
+}
+
+main {
+  margin: 50px;
+}
+/*img {
+ width: 500px;
+}*/
+
+button {
+  line-height: 20px;
+  border-radius: 4px;
+  background: none;
+  border: 1px solid white;
+  padding: 20px;
+  margin: 10px;
+
+}
+
+.buttons {
+ text-align: center;
+}
+
+button a {
+  color: white;
+}
+
+li {
+  list-style: none;
+}
+
+
+/* relevant styles */
+.img__wrap {
+  position: relative;
+  height: 316px;
+  width: 300px;
+}
+
+.img__description {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(29, 106, 154, 0.72);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+
+  /* transition effect. not necessary */
+  transition: opacity .2s, visibility .2s;
+}
+
+.img__wrap:hover .img__description {
+  visibility: visible;
+  opacity: 1;
+}
+
+.black {
+  background: black;
+}
+
+.hardback {
+  width: 100%;
+  border-radius: 5px;
+  background: blue;
+}

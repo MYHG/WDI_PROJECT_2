@@ -1,0 +1,38 @@
+.homepage {
+  background: url('http://czdigitalmedia.com/wp-content/uploads/2015/03/white-brick-wall-tumblr.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.book-container {
+    background: black;
+    box-shadow: 10px 5px 5px black;
+    width:450px;
+    height:600px;
+    color: white;
+    border: 4px solid white;
+    border-left: none;
+    text-align: center;
+    border-radius: 2px;
+
+    img {
+      width:50%;
+    }
+
+    p  {
+      font-size: 50px;
+      float: right;
+    }
+}
+
+
+
+// .main {
+//   body {
+//     background-image: url('http://www.photos-public-domain.com/wp-content/uploads/2012/03/bamboo-cutting-board-texture.jpg');
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     margin:50px;
+//     }
+//
+// }

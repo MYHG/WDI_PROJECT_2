@@ -1,14 +1,15 @@
-  <div class= "container">
-    <div class= "row">
-      <div class="large-12 columns">
-
-          <% yearbooks.forEach((yearbook) => { %>
-            <img src="<%= yearbook.image %>">
-
-            <a href="/yearbooks/<%= yearbook.id %>"><h1><%= yearbook.name %></h1></a>
-            <p><%= yearbook.description %></p>
-            <% }); %>
-
+<div class= "container yearbook-index">
+  <div class= "row">
+    <% yearbooks.forEach((yearbook) => { %>
+      <div class="col-lg-4 col-md-6">
+        <div class="wrapper">
+          <div class="yearbook-img" style="background-image: url('<%= yearbook.image %>');"></div>
+          <div class="yearbook-content">
+            <a href="/yearbooks/<%= yearbook.id %>"><h4 class="card-title"><%= yearbook.name %></h4></a>
+            <p class="card-text"><%= yearbook.description %></p>
+          </div>
         </div>
       </div>
-    </div>
+    <% }); %>
+  </div>
+</div>
