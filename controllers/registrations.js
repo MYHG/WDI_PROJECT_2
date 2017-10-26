@@ -11,9 +11,10 @@ function registrationCreate(req, res){
     .create(req.body)
     .then((user) => {
       res.redirect('/');
-      
+
     })
     .catch((err) => {
+console.log(err);
       if (err.name === 'ValidationError') {
         return res.status(400).render('registrations/new', { message: 'Passwords do not match' });
       }
