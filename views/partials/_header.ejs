@@ -13,8 +13,10 @@
         <li class="nav-item">
           <a class="nav-link" href="/yearbooks/new">Add New Entry</a>
         </li>
+      </ul>
+      <ul class ="nav justify-content-end">
         <% if (locals.isAuthenticated) { %>
-          <li class="nav-item">
+          <li class="nav-item justify-content-end">
             <a class="nav-link" href="/profile">Welcome <%= locals.user.username %></a>
           </li>
           <li class="nav-item">
@@ -29,11 +31,11 @@
           </li>
         <% } %>
       </ul>
-     <form class="form-inline">
+     <%# <form class="form-inline">
     <div class="input-group">
       <span class="input-group-addon" id="basic-addon1">@</span>
       <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-    </div>
+    </div>%>
   </div>
   </form>
  </nav>

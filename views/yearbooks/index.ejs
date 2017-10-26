@@ -5,7 +5,7 @@
         <div class="wrapper">
           <div class="yearbook-img" style="background-image: url('<%= yearbook.image %>');"></div>
           <div class="yearbook-content">
-            <a href="/yearbooks/<%= yearbook.id %>"><h4 class="card-title"><%= yearbook.name %></h4></a>
+            <a href="/yearbooks/<%= yearbook.id %>"><h4><%= yearbook.name %></h4></a>
             <p class="card-text"><%= yearbook.description %></p>
           </div>
         </div>
@@ -13,3 +13,8 @@
     <% }); %>
   </div>
 </div>
+
+<%# <div class="img__wrap">
+  <img class="img__img" src="http://placehold.it/257x200.jpg" />
+  <p class="img__description">This image looks super neat.</p>
+</div>%>

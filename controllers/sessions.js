@@ -15,7 +15,7 @@ function sessionsCreate(req, res) {
 
       req.session.userId = user.id;
 
-      return res.redirect('/');
+      return res.redirect('/yearbooks');
     });
 }
 function sessionsDelete(req, res) {

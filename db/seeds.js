@@ -33,7 +33,7 @@ User
     email: 'hannah@hannah.co.uk',
     password: 'password',
     passwordConfirmation: 'password',
-    image: 'https://orig00.deviantart.net/4b77/f/2014/065/6/f/coding_ninja_by_kaizoro-d797me9.jpg',
+    image: 'https://res.cloudinary.com/teepublic/image/private/s--4pvOYiBc--/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1496364325/production/designs/1640493_1.jpg',
     quote: 'INSERT QUOTE'
   }, {
     firstName: 'Janis',
@@ -58,11 +58,11 @@ User
     console.log(`${users.length} users created`);
     return Yearbook
       .create([{
-        name: 'WDI 30',
-        description: 'Ninjas',
+        name: 'Ninja',
+        description: 'Dreams of a universe where goblins invade argos',
         createdBy: users[0],
         users: [users[0]],
-        image: 'http://fillmurray.com/500/500'
+        image: 'https://orig00.deviantart.net/4b77/f/2014/065/6/f/coding_ninja_by_kaizoro-d797me9.jpg'
       }, {
         name: 'Pug Life',
         description: 'I didn\'t choose the pug life the pug life choose me ',
@@ -87,6 +87,30 @@ User
         createdBy: users[0],
         users: [users[0]],
         image: 'https://ih0.redbubble.net/image.413733226.6502/flat,800x800,070,f.u1.jpg'
+      }, {
+        name: 'Mr Bond',
+        description: 'insert description ',
+        createdBy: users[0],
+        users: [users[0]],
+        image: 'http://www.007.com/wp-content/uploads/2014/01/test_bio_image.jpg'
+      }, {
+        name: 'Where\'s Wally?',
+        description: 'insert description ',
+        createdBy: users[0],
+        users: [users[0]],
+        image: 'https://pbs.twimg.com/profile_images/561278946369495042/vrkX_baO.png'
+      }, {
+        name: 'The Cluner',
+        description: 'Ultimate Martin Clunes fan ',
+        createdBy: users[0],
+        users: [users[0]],
+        image: 'https://s3.amazonaws.com/wos-photos-production/84343.jpg'
+      }, {
+        name: 'Will Heftner',
+        description: 'Insert description ',
+        createdBy: users[0],
+        users: [users[0]],
+        image: 'https://smhttp-ssl-39255.nexcesscdn.net/wp-content/uploads/2015/12/Hugh-Hefner-portrayed-in-the-media-by-Esquire-in-a-smoking-jacket-675x900.jpg'
       }]);
   })
   .then((yearbooks) => console.log(`${yearbooks.length} yearbooks created`))

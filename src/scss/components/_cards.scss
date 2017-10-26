@@ -1,16 +1,53 @@
 .yearbook-index {
   .wrapper {
+
     .yearbook-img {
-      height: 300px;
+      height: 250px;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+      border: 8px solid #E0E0E0;
+      transition: box-shadow .35s ease-out, transform .3s ease-out, opacity .2s ease-out;
+      border-radius: 2px;
 
     }
     .yearbook-content {
       padding: 20px;
-      background-color: #fa4542;
-      box-shadow: 10px 5px 5px white;
+      background-color: #E0E0E0;
+
+    }
+
+
+
+    h4 {
+      color: black;
     }
   }
+}
+
+/* relevant styles */
+.img__wrap {
+  position: relative;
+  height: 250px;
+
+}
+
+.img__description {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(29, 106, 154, 0.72);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+
+  /* transition effect. not necessary */
+  transition: opacity .2s, visibility .2s;
+}
+
+.img__wrap:hover .img__description {
+  visibility: visible;
+  opacity: 1;
 }
