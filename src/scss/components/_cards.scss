@@ -4,16 +4,13 @@
   .wrapper {
 
     .yearbook-img {
-      height: 250px;
+      height: 300px;
       background-repeat: no-repeat;
       background-size: cover;
       transition: box-shadow .35s ease-out, transform .3s ease-out, opacity .2s ease-out;
       border-radius: 3px;
     }
 
-    img {
-      width: 200px;
-     }
     }
 
     .yearbook-content {
