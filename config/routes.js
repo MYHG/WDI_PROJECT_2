@@ -15,7 +15,7 @@ router.get('/', (req, res) => res.render('home'));
 
 // INDEX
 router.route('/yearbooks')
-  .get(yearbooks.index)
+  .get(secureRoute, yearbooks.index)
   .post(secureRoute, yearbooks.create);
 
 // NEW
@@ -24,15 +24,9 @@ router.route('/yearbooks/new')
 
 // SHOW
 router.route('/yearbooks/:id')
-  .get(yearbooks.show)
+  .get(secureRoute, yearbooks.show)
   .put(secureRoute, yearbooks.update)
   .delete(secureRoute, yearbooks.delete);
-
-router.route('/yearbooks/:id/join')
-  .post(yearbooks.join);
-
-router.route('/yearbooks/:id/leave')
-  .delete(yearbooks.leave);
 
 // EDIT
 router.route('/yearbooks/:id/edit')
