@@ -50,10 +50,10 @@ User
     passwordConfirmation: 'password',
     quote: 'INSERT QUOTE'
   }, {
-    firstName: 'Josh',
-    lastName: 'Sadler',
-    username: 'Unicorn',
-    email: 'josh@josh.co.uk',
+    firstName: 'Julie',
+    lastName: 'Bernal',
+    username: 'JB',
+    email: 'julie@bernal.co.uk',
     password: 'password',
     passwordConfirmation: 'password',
     quote: 'INSERT QUOTE'
@@ -110,7 +110,7 @@ User
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.'
       }, {
         name: 'Hannah Cross',
-        description: 'I didn\'t choose the pug life the pug life choose me ',
+        description: 'I didn\'t choose the pug life, the pug life choose me ',
         createdBy: users[1],
         users: [users[1]],
         image: 'https://user-images.githubusercontent.com/28314323/32336546-7a3bb05e-bfe7-11e7-950d-0a916ee272d1.jpg',
@@ -124,14 +124,14 @@ User
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.'
       }, {
         name: 'Gavin Hughes',
-        description: 'insert quote ',
+        description: 'Real life Johnny bravo ',
         createdBy: users[3],
         users: [users[3]],
         image: 'https://user-images.githubusercontent.com/28314323/32336570-8c90a520-bfe7-11e7-9fe1-610fc97d469a.jpg',
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.'
       }, {
-        name: 'Josh Sadler',
-        description: 'insert description ',
+        name: 'Julie Bernal',
+        description: 'Loves eating pretzels ',
         createdBy: users[4],
         users: [users[4]],
         image: 'https://user-images.githubusercontent.com/28314323/32336555-83186c76-bfe7-11e7-8747-5607e7817375.jpg',
