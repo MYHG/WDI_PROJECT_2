@@ -1,34 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Anton|Roboto');
+
 body {
-  background-image: url('http://czdigitalmedia.com/wp-content/uploads/2015/03/white-brick-wall-tumblr.jpg');
+  background-image: url('https://static1.squarespace.com/static/577c55773e00be4d81180db5/57fac509579fb3dc20178b8a/58ff5720197aea4f7f31b8d1/1493300484942/retina-4fac23dea54e8327c47a90dcf5d1e70c.jpg?format=2500w');
   background-repeat: no-repeat;
   background-size: cover;
   color: #000;
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
 }
 
 h1 {
- font-family: 'Lato', sans-serif;
+ font-family: 'Anton', sans-serif;
  font-size: 60px;
- color:#fff;
 }
 
 p {
-  font-family: 'Droid Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
-main {
-  margin: 50px;
+.wrap {
+  margin: 100px;
 
 }
-/*img {
- width: 500px;
-}*/
+
 
 button {
   line-height: 20px;
-  // border-radius: 2px;
   background: none;
-  border: 2px solid white;
-  padding: 20px;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 10px;
   margin: 10px;
   font-size: 15px;
 
@@ -38,10 +39,34 @@ button {
  text-align: center;
 }
 
-button a {
+ a {
   color: white;
-}
+  text-decoration: none !important;
+ }
 
 li {
   list-style: none;
+
+}
+
+form {
+  background: rgba(0,0,0,0.8);
+  padding: 20px;
+  color: white;
+  width: 60%;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+i {
+  font-size: 30px !important;
+  text-align: center;
+}
+
+.validation {
+  p {
+    color: firebrick;
+  }
 }
