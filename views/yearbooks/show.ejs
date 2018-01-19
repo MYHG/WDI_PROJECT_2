@@ -1,46 +1,27 @@
-<h1><%= yearbook.name %></h1>
-<p><%= yearbook.description %></p>
-<p>Created by: <%= yearbook.createdBy.username %></p>
-
 <main class="container">
-  <div class="col-md-12">
-    <div class="row">
-    <div class="col-md-12">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</div>
+  <div class="wrap">
+    <div class="show">
+      <div class="row">
+        <div class="col-md-6">
+          <h1><%= yearbook.name %></h1>
+          <h5>Created by: <%= yearbook.createdBy.username %></h5>
+          <% yearbook.users.forEach(user => { %>
+            <img src="<%= yearbook.image %>">
+            <% }) %>
+          </div>
+          <div class="center col-md-6">
+            <% yearbook.users.forEach(user => { %>
+              <p><i class="fa fa-quote-left" aria-hidden="true"> <%= yearbook.description %></i></p>
+              <p><%= user.quote %>
+              <p><%= yearbook.content %></p>
+              <% }) %>
 
-<% if(locals.isAuthenticated && (yearbook.createdBy.id === locals.user.id)) { %>
-  <a href="/yearbooks/<%= yearbook.id %>/edit">Edit Yearbook</a>
-  <form method="POST" action="/yearbooks/<%= yearbook.id %>">
-    <input type="hidden" name="_method" value="DELETE">
-    <button>Delete Yearbook</button>
-  </form>
-<% } %>
-
-<%# only see the join or leave buttons if the user is logged in%>
-<%#loop over the array of yearbook users and find one that matches the criteria%>
-<%#the criteria is that the user ids have to match%>
-<% if(locals.isAuthenticated) { %>
-  <% if(!yearbook.users.find(_user => _user.id === user.id)) { %>
-    <form method="POST" action="/yearbooks/<%= yearbook.id %>/join">
-      <button>Join!</button>
-    </form>
-  <% } %>
-  <% if(yearbook.users.find(_user => _user.id === user.id)) { %>
-    <form method="POST" action="/yearbooks/<%= yearbook.id %>/leave">
-      <input type="hidden" name="_method" value="DELETE">
-      <button>Leave!</button>
-    </form>
-  <% } %>
-<% } %>
-
-<ul>
-  <% yearbook.users.forEach(user => { %>
-    <li>
-        <h2><%= user.username %></h2>
-        <img src="<%= user.image %>">
-        <p><%= user.quote %>
-    </li>
-  <% }) %>
-</ul>
-</main>
+              <% if(locals.isAuthenticated && (yearbook.createdBy.id === locals.user.id)) { %>
+                <button class="btn-danger"><a href="/yearbooks/<%= yearbook.id %>/edit">Edit Yearbook</a></button>
+                <button class="btn-danger"><a href="/yearbooks/<%= yearbook.id %>/delete">Delete Yearbook</a></button>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
