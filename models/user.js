@@ -4,18 +4,9 @@ const bcrypt = require('bcrypt');
 const userSchema = new mongoose.Schema({
   firstName: {type: String, required: true },
   lastName: {type: String, required: true },
-  username: {type: String},
+  username: String,
   email: {type: String, required: true},
-  password: {type: String, required: true},
-  image: {type: String, required: true },
-  quote: {type: String, required: true }
-});
-
-userSchema.pre('save', function hashPassword(next) {
-  if (this.isModified('password')) {
-    this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8));
-  }
-  next();
+  password: {type: String, required: true}
 });
 
 userSchema
@@ -25,7 +16,14 @@ userSchema
   });
 
 userSchema.pre('validate', function checkPassword(next) {
-  if (this.isModified('password') && this._passwordConfirmation !== this.password) this.invalidate('passwordConfirmation', 'does not match');
+  if(this.isModified('password') && this._passwordConfirmation !== this.password) this.invalidate('passwordConfirmation', 'does not match');
+  next();
+});
+
+userSchema.pre('save', function hashPassword(next) {
+  if(this.isModified('password')) {
+    this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8));
+  }
   next();
 });
 
