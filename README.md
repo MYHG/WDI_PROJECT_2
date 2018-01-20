@@ -1,12 +1,13 @@
 
 
- ![](/Users/sandraokoli/Desktop/GA logo.png)
+ <img src="https://image.ibb.co/eccadb/GA_logo.png">
+ 
 #WDI30 PROJECT 2 - GA Yearbook
 
 ##Concept
 
 For this project I created a full-stack RESTful application with authentication.
-Given the timeframe I choose to build a Yearbook which was fun, simple and achievable. Users were able to login and register to create and/or view yearbook entries. Users can also edit and delete their profiles only if they are logged in.
+Given the timeframe I choose to build a Yearbook which was fun and achievable. Users were able to login and register to create and/or view yearbook entries. Users can also edit and delete their profiles only if they are logged in.
 
 
 ##Technologies/Libraries
@@ -32,20 +33,17 @@ After setting up my index.js file, I built out the authentication as I thought t
 ##Screenshots
 
 ###Landing page
-
-
+<img src="https://preview.ibb.co/cwyFdb/yearbook_landing.png">
 
 ### Index
-![](/Users/sandraokoli/Desktop/Screenshots/yearbook-landing.png
-)
+<img src="https://preview.ibb.co/i1bbJb/yearbook_index.png">
 
-### Show (Edit/Delete)
-![](/Users/sandraokoli/Desktop/Screenshots/yearbook-show.png
-)
+### Show(Edit/Delete)
+<img src="https://preview.ibb.co/mc5xPG/yearbook_show.png">
+
 
 ### Forms(with validation)
-![](/Users/sandraokoli/Desktop/Screenshots/yearbook-form.png
-)
+<img src="https://preview.ibb.co/n2j7PG/yearbook_form.png">
 
 ##Heroku Link
 https://hidden-reaches-31565.herokuapp.com/
